@@ -1,10 +1,6 @@
 # Flash ⚡️
-[![Swift Version](https://img.shields.io/badge/Swift-5.2-brightgreen.svg)](http://swift.org)
+[![Swift Version](https://img.shields.io/badge/Swift-5.8-brightgreen.svg)](http://swift.org)
 [![Vapor Version](https://img.shields.io/badge/Vapor-4-30B6FC.svg)](http://vapor.codes)
-[![Circle CI](https://circleci.com/gh/nodes-vapor/flash/tree/master.svg?style=shield)](https://circleci.com/gh/nodes-vapor/flash)
-[![codebeat badge](https://codebeat.co/badges/10cffe07-3d4f-420c-adb9-a98529671bfa)](https://codebeat.co/projects/github-com-nodes-vapor-flash-master)
-[![codecov](https://codecov.io/gh/nodes-vapor/flash/branch/master/graph/badge.svg)](https://codecov.io/gh/nodes-vapor/flash)
-[![Readme Score](http://readme-score-api.herokuapp.com/score.svg?url=https://github.com/nodes-vapor/flash)](http://clayallsopp.github.io/readme-score?url=https://github.com/nodes-vapor/flash)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/nodes-vapor/flash/master/LICENSE)
 
 This package allows you to display Flash messages between your views.
@@ -41,14 +37,6 @@ First make sure that you've imported Flash everywhere when needed:
 
 ```swift
 import Flash
-```
-
-### Adding the provider
-
-```swift
-public func configure(_ config: inout Config, _ env: inout Environment, _ services: inout Services) throws {
-    try services.register(FlashProvider())
-}
 ```
 
 ### Adding the middleware
@@ -115,31 +103,30 @@ Further, using the `message` property you will be able to pull out the message o
 
 Without using any dependencies, this is how Flash messages could be rendered:
 
-```javascript
+```html
 <div class="alerts">
-#for(flash in flashes().all):
-        Message: #(flash.message)
-        Type: #(flash.kind)
-    #endfor
+    #(flashes)
 </div>
 ```
 
-#### Using the Bootstrap package
+Using the example above, this is how they are going to be rendered:
 
-The below example uses the Vapor 3 [Bootstrap package](https://github.com/nodes-vapor/bootstrap) for generating the alert html.
-
-```javascript
+```html
 <div class="alerts">
-    #for(flash in flashes().all):
-        #bs:alert(flash.bootstrapClass) {
-            #(flash.message)
-        }
-    #endfor
+    <div class="alert alert-success" role="alert">
+        Successfully saved
+    </div>
+    <div class="alert alert-info" role="alert">
+        Email sent
+    </div>
+    <div class="alert alert-warning" role="alert">
+        Updated user
+    </div>
+    <div class="alert alert-danger" role="alert">
+        Something went wrong
+    </div>
 </div>
-
 ```
-
-Add the Flash html to one file and embed it in rest of your views or through a base layout, e.g.: `#embed("alerts")`.
 
 ## 🏆 Credits
 

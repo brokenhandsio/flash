@@ -1,10 +1,10 @@
-// swift-tools-version:5.2
+// swift-tools-version:5.8
 import PackageDescription
 
 let package = Package(
     name: "Flash",
     platforms: [
-        .macOS(.v10_15)
+        .macOS(.v13)
     ],
     products: [
         .library(name: "Flash", targets: ["Flash"]),
