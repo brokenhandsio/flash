@@ -12,10 +12,8 @@ public struct FlashTag: UnsafeUnescapedLeafTag {
 
         let result: String = request.flashes.map { flash in
             """
-            <div class=\"alert alert-\(flash.kind.bootstrapClass)\" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+            <div class=\"alert alert-\(flash.kind.bootstrapClass) alert-dismissible\" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 \(flash.message)
             </div>
             """

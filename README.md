@@ -14,7 +14,7 @@ Add `Flash` to the package dependencies (in your `Package.swift` file):
 ```swift
 dependencies: [
     ...,
-    .package(url: "https://github.com/nodes-vapor/flash.git", from: "4.0.0")
+    .package(url: "https://github.com/brokenhandsio/flash.git", from: "1.0.0-beta.1")
 ]
 ```
 
@@ -113,17 +113,21 @@ Using the example above, this is how they are going to be rendered:
 
 ```html
 <div class="alerts">
-    <div class="alert alert-success" role="alert">
+    <div class="alert alert-success alert-dismissible" role="alert">
         Successfully saved
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-    <div class="alert alert-info" role="alert">
+    <div class="alert alert-info alert-dismissible" role="alert">
         Email sent
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-    <div class="alert alert-warning" role="alert">
+    <div class="alert alert-warning alert-dismissible" role="alert">
         Updated user
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-    <div class="alert alert-danger" role="alert">
+    <div class="alert alert-danger alert-dismissible" role="alert">
         Something went wrong
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 </div>
 ```
